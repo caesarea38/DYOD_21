@@ -1,9 +1,9 @@
 #pragma once
 
 #include <iostream>
-#include <map>
 #include <memory>
 #include <string>
+#include <unordered_map>
 #include <vector>
 
 #include "storage/table.hpp"
@@ -45,5 +45,8 @@ class StorageManager : private Noncopyable {
   StorageManager& operator=(StorageManager&&) = default;
 
   // Implementation goes here
+  // static object, that is the single point of entry for the storagemanager
+  static StorageManager* _storage_manager;
+  std::unordered_map<std::string, std::shared_ptr<Table>> _tables;
 };
 }  // namespace opossum

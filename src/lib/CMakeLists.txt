@@ -21,6 +21,8 @@ set(
     utils/load_table.hpp
     utils/string_utils.cpp
     utils/string_utils.hpp
+    storage/table_column_attributes.hpp
+    storage/table_column_attributes.cpp
 )
 
 set(

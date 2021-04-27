@@ -28,7 +28,7 @@ class ValueSegment : public BaseSegment {
   const std::vector<T>& values() const;
 
  protected:
-  // Implementation goes here
+  // holds the values of the segment inside the templated vector
+  std::vector<T> _valuesegment_values;
 };
-
 }  // namespace opossum

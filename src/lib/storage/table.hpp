@@ -11,6 +11,7 @@
 #include "base_segment.hpp"
 #include "chunk.hpp"
 
+#include "table_column_attributes.hpp"
 #include "type_cast.hpp"
 #include "types.hpp"
 #include "utils/assert.hpp"
@@ -72,6 +73,13 @@ class Table : private Noncopyable {
   void append(const std::vector<AllTypeVariant>& values);
 
  protected:
-  // Implementation goes here
+  // saves the target chunk size
+  const ChunkOffset _target_chunk_size;
+
+  // saves the column attributes of the table inside a vector
+  std::vector<TableColumnAttributes> _column_attributes;
+
+  // directly saves the chunk objects inside the vector
+  std::vector<Chunk> _chunks;
 };
 }  // namespace opossum
